@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: lzt-scraper
+    env: docker
+    autoDeploy: true
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: BOT_EMAIL_ENDPOINT
+        sync: false
+      - key: EMAIL_SECRET
+        sync: false
+      - key: LZT_COOKIES_JSON
+        sync: false
+      - key: LZT_BASE
+        value: https://zelenka.guru
+      - key: POLL_INTERVAL
+        value: "25"
